@@ -12,11 +12,11 @@ namespace Beam.Models
         string returnVal = "failed";
 
         // POST api/request
+        //[HttpGet("{pk}")]
         [HttpGet]
-        public IEnumerable<Request> Get([FromBody] Beam.Models.Request RequestModel)
+        public IEnumerable<Request> Get(int id)
         {
-
-            return new RequestDataAccessLayer().GetAllRequestControllers(RequestModel.PK);
+            return new RequestDataAccessLayer().GetAllRequestControllers(id);
         }
 
         // POST api/request
@@ -73,7 +73,7 @@ namespace Beam.Models
 
         // POST api/request
         [HttpDelete]
-        public string Delete([FromBody] Beam.Models.Request RequestModel)
+        public string Delete(int id)
         {
             returnVal = "failed";
             ExceptionDataAccessLayer ExcData = new ExceptionDataAccessLayer();
@@ -81,7 +81,7 @@ namespace Beam.Models
             try
             {
 
-                if (new RequestDataAccessLayer().RequestDelete(RequestModel.PK))
+                if (new RequestDataAccessLayer().RequestDelete(id))
                 {
                     returnVal = "success";
 

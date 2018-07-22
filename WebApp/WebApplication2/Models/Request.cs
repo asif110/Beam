@@ -25,9 +25,9 @@ namespace Beam.Models
         public int FlexibilityDays { get; set; }
         public string Subject { get; set; }
         public string ItemDescription { get; set; }
-        public char Image { get; set; }
+        public string Image { get; set; }
         public int Options { get; set; }
-        public int ShareOnFacebook { get; set; }
+        public Boolean ShareOnFacebook { get; set; }
         public int AccompanyInfoFK { get; set; }
         public int PackageInfoFK { get; set; }
         public Boolean IsForwardingAllowed { get; set; }

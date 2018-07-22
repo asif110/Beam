@@ -44,13 +44,13 @@ namespace Beam.Models
                         RequestController.FlexibilityDays = Convert.ToInt32(rdr["reqFlexibilityDays"]);
                         RequestController.Subject = rdr["reqToCityFK"].ToString();
                         RequestController.ItemDescription = rdr["reqItemDescription"].ToString();
-                        RequestController.Image = Convert.ToChar(rdr["reqImage"]);
+                        RequestController.Image = Convert.ToString(rdr["reqImage"]);
                         RequestController.Options = Convert.ToInt32(rdr["reqOptions"]);
-                        RequestController.ShareOnFacebook = Convert.ToInt32(rdr["reqShareOnFacebook"]);
+                        RequestController.ShareOnFacebook = Convert.ToBoolean(rdr["reqShareOnFacebook"]);
                         RequestController.AccompanyInfoFK = Convert.ToInt32(rdr["reqaAccompanyInfoFK"]);
-                        RequestController.PackageInfoFK = Convert.ToInt32(rdr["reqaPackageInfoFK"]);
+                        RequestController.PackageInfoFK = Convert.ToInt32(rdr["reqPackageInfoFK"]);
                         RequestController.IsForwardingAllowed = Convert.ToBoolean(rdr["reqIsForwardingAllowed"]);
-                        RequestController.Status = Convert.ToInt32(rdr["reqaStatus"]);
+                        RequestController.Status = Convert.ToInt32(rdr["reqStatus"]);
                         RequestController.WillingToPay = Convert.ToInt32(rdr["reqWillingToPay"]);
                         lstRequestController.Add(RequestController);
 
@@ -76,7 +76,7 @@ namespace Beam.Models
 
                     //ALTER PROCEDURE [dbo].[UsrRegisterUser] @email VARCHAR(254),@pass VARCHAR(10), @phone VARCHAR(10), @fName NCHAR(24), @lName NCHAR(24), 
                     //@cityFK INT, @cityTravelTo1FK INT, @cityTravel2FK INT
-                    cmd.Parameters.Add(new SqlParameter("@reqPK", request.PK));
+                    //cmd.Parameters.Add(new SqlParameter("@reqPK", request.PK));
                     cmd.Parameters.Add(new SqlParameter("@reqUserFK", request.UserFK));
                     cmd.Parameters.Add(new SqlParameter("@reqRequestTypeFK", request.RequestTypeFK));
                     cmd.Parameters.Add(new SqlParameter("@reqFromCityFK", request.FromCityFK));
@@ -86,7 +86,7 @@ namespace Beam.Models
                     cmd.Parameters.Add(new SqlParameter("@reqFlexibilityDays", request.FlexibilityDays));
                     cmd.Parameters.Add(new SqlParameter("@reqSubject", request.Subject));
                     cmd.Parameters.Add(new SqlParameter("@reqItemDescription", request.ItemDescription));
-                    cmd.Parameters.Add(new SqlParameter("@reqImage", request.Subject));
+                    cmd.Parameters.Add(new SqlParameter("@reqImage", request.Image));
                     cmd.Parameters.Add(new SqlParameter("@reqOptions", request.Options));
                     cmd.Parameters.Add(new SqlParameter("@reqShareOnFacebook", request.ShareOnFacebook));
                     cmd.Parameters.Add(new SqlParameter("@reqaAccompanyInfoFK", request.AccompanyInfoFK));
@@ -131,7 +131,7 @@ namespace Beam.Models
                     cmd.Parameters.Add(new SqlParameter("@reqFlexibilityDays", request.FlexibilityDays));
                     cmd.Parameters.Add(new SqlParameter("@reqSubject", request.Subject));
                     cmd.Parameters.Add(new SqlParameter("@reqItemDescription", request.ItemDescription));
-                    cmd.Parameters.Add(new SqlParameter("@reqImage", request.Subject));
+                    cmd.Parameters.Add(new SqlParameter("@reqImage", request.Image));
                     cmd.Parameters.Add(new SqlParameter("@reqOptions", request.Options));
                     cmd.Parameters.Add(new SqlParameter("@reqShareOnFacebook", request.ShareOnFacebook));
                     cmd.Parameters.Add(new SqlParameter("@reqaAccompanyInfoFK", request.AccompanyInfoFK));
