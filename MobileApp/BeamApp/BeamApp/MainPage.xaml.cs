@@ -32,7 +32,8 @@ namespace BeamApp
             }
             else
             {
-                //await Navigation.PushAsync(new PreMainMenu());
+                await Navigation.PushAsync(new PreMainMenu());
+                 Navigation.RemovePage(this);
             }
         }
 
@@ -40,9 +41,6 @@ namespace BeamApp
         {
             //App.Current.MainPage = new Register();
             await Navigation.PushAsync(new Register());
-
-
-
         }
     }
 }

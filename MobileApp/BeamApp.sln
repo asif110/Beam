@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeamApp.iOS", "BeamApp\Beam
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BeamApp", "BeamApp\BeamApp\BeamApp.shproj", "{7DDD4743-48DA-4F29-921F-F134E9397B86}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14A4C834-47F6-431A-990F-6FA24E749394}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		BeamApp\BeamApp\BeamApp.projitems*{24c8eb63-3b06-4443-9de5-676bd73e736d}*SharedItemsImports = 4

@@ -11,43 +11,41 @@
 		<Entry Placeholder="Last Name" x:Name="lName"></Entry>
 		<Entry Placeholder="Email" x:Name="email"></Entry>
 		<Entry Placeholder="Phone no." x:Name="phone"></Entry>		
-		<Entry Placeholder="Password" IsPassword="True" x:Name="password"></Entry>
+		<Entry Placeholder="Password" IsPassword="True" x:Name="password" ></Entry>
 		<Entry Placeholder="Confirm Password" IsPassword="True" x:Name="confirmPassword"></Entry>
-		<Picker x:Name="country1" SelectedIndex="0" HorizontalOptions="FillAndExpand">
-			<Picker.Items>
-				<x:String>Country you live in</x:String>
-			</Picker.Items>
-		</Picker>
-		<Picker x:Name="city1" SelectedIndex="0" HorizontalOptions="FillAndExpand">
-			<Picker.Items>
-				<x:String>City you live in</x:String>
-			</Picker.Items>
-		</Picker>
+            <Picker x:Name="country1" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="Country you live in" Unfocused="OnCountrySelected">
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="Title"/>
+                </Picker.ItemDisplayBinding>
+            </Picker>
+            <Picker x:Name="city1" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="City you live in" Unfocused="OnCitySelected">
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="NameKey"/>
+                </Picker.ItemDisplayBinding>
+            </Picker>
 
-		<Picker x:Name="countryTravel1" SelectedIndex="0" HorizontalOptions="FillAndExpand">
-			<Picker.Items>
-				<x:String>Country you travel often 1</x:String>
-			</Picker.Items>
-		</Picker>
-		<Picker x:Name="cityTravel1" SelectedIndex="0" HorizontalOptions="FillAndExpand">
-			<Picker.Items>
-				<x:String>City you travel often 1</x:String>
-			</Picker.Items>
-		</Picker>
+            <Picker x:Name="countryTravel1" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="Country you travel often 1" Unfocused="OnCountryTravel1Selected" >
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="Title"/>
+                </Picker.ItemDisplayBinding>
+            </Picker>
+            <Picker x:Name="cityTravel1" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="City you travel often 1" Unfocused="OnCityTravelTo1Selected">
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="NameKey"/>
+                </Picker.ItemDisplayBinding>
+            </Picker>
+            <Picker x:Name="countryTravel2" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="Country you travel often 2" Unfocused="OnCountryTravel2Selected">
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="Title"/>
+                </Picker.ItemDisplayBinding>
+            </Picker>
+            <Picker x:Name="cityTravel2" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="City you travel often 2" Unfocused="OnCityTravelTo2Selected">
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="NameKey"/>
+                </Picker.ItemDisplayBinding>
+            </Picker>
 
-		<Picker x:Name="countryTravel2" SelectedIndex="0" HorizontalOptions="FillAndExpand">
-			<Picker.Items>
-				<x:String>Country you travel often 2</x:String>
-			</Picker.Items>
-		</Picker>
-		<Picker x:Name="cityTravel2" SelectedIndex="0" HorizontalOptions="FillAndExpand">
-			<Picker.Items>
-				<x:String>City you travel often 2</x:String>
-			</Picker.Items>
-		</Picker>
-
-
-		<Button Text="Register" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnRegister"></Button>
+            <Button Text="Register" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnRegister"></Button>
 	</StackLayout>
 </ScrollView>
 </ContentPage>

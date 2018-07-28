@@ -44,6 +44,10 @@ namespace BeamApp
                     {
                         return false;
                     }
+                    else //success
+                    {
+
+                    }
                 }
             }
             catch(Exception ex)

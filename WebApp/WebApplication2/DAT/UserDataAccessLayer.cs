@@ -28,7 +28,7 @@ namespace Beam.DAT
 
                     cmd.Parameters.Add(new SqlParameter("@email", email));
                     cmd.Parameters.Add(new SqlParameter("@pass", pass));
-                    cmd.Parameters.Add(new SqlParameter("@phone", pass));
+                    cmd.Parameters.Add(new SqlParameter("@phone", phone));
                     cmd.Parameters.Add(new SqlParameter("@fName", firstName));
                     cmd.Parameters.Add(new SqlParameter("@lName", lastName));
                     cmd.Parameters.Add(new SqlParameter("@cityFK", cityFK));
