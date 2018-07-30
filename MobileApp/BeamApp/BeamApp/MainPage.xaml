@@ -5,11 +5,13 @@
              x:Class="BeamApp.MainPage">
 
 
-	<StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
+	<StackLayout Spacing="20" Padding="50" VerticalOptions="Center" x:Name="loginPanel">
 		<Button Text="Register" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnRegister" HorizontalOptions="End"></Button>
 		<Entry Placeholder="Email" x:Name="email"></Entry>
 		<Entry Placeholder="Password" IsPassword="True" x:Name="password"></Entry>
-		<Button Text="Log In" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnLoginButtonClicked"></Button>
+		<Button Text="Log In" Clicked="OnLoginButtonClicked"></Button>
+        <ActivityIndicator IsRunning="False"  x:Name="spinner"/>
 	</StackLayout>
-
+    
+    
 </ContentPage>

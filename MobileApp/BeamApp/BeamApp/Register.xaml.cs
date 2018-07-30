@@ -48,11 +48,25 @@ namespace BeamApp
             }
         }
 
+        private void EnableForm(bool isEnabled)
+        {
+            this.registrationPanel.IsEnabled = isEnabled;
+            if (isEnabled)
+            {
+                Navigation.PopAsync();
+            }
+            else
+            {
+                Navigation.PushModalAsync(new Spinner());
+            }
+        }
+
         async void OnCountrySelected(object sender, EventArgs e)
         {
-           string countryCode =  Convert.ToString(countryList[country1.SelectedIndex].CountryId);
+            //EnableForm(false);
+            string countryCode =  Convert.ToString(countryList[country1.SelectedIndex].CountryId);
             city1.ItemsSource  = await registrationController.GetCities(countryCode);
-           
+            //EnableForm(true);
         }
 
         async void OnCountryTravel1Selected(object sender, EventArgs e)

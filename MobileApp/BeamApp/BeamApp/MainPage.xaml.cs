@@ -21,6 +21,8 @@ namespace BeamApp
 
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
+            this.loginPanel.IsEnabled = false;
+            this.spinner.IsRunning = true;
             string email = this.email.Text;
             string password = this.password.Text;
             
@@ -29,6 +31,8 @@ namespace BeamApp
             if (!result)
             {
                 await DisplayAlert("Login failed", "Incorrect username or password", "OK");
+                this.loginPanel.IsEnabled = true;
+                this.spinner.IsRunning = false;
             }
             else
             {

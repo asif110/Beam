@@ -5,9 +5,9 @@
              x:Class="BeamApp.Register">
 
 	<ScrollView>
-		<StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
-		<Label Text="Register"/>
-		<Entry Placeholder="First Name" x:Name="fName"></Entry>
+		<StackLayout Spacing="20" Padding="50" VerticalOptions="Center" x:Name="registrationPanel">
+            <Label Text="Register"/>
+            <Entry Placeholder="First Name" x:Name="fName"></Entry>
 		<Entry Placeholder="Last Name" x:Name="lName"></Entry>
 		<Entry Placeholder="Email" x:Name="email"></Entry>
 		<Entry Placeholder="Phone no." x:Name="phone"></Entry>		
@@ -46,6 +46,8 @@
             </Picker>
 
             <Button Text="Register" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnRegister"></Button>
+            
 	</StackLayout>
 </ScrollView>
+    
 </ContentPage>

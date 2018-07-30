@@ -4,12 +4,12 @@
              x:Class="BeamApp.PreMainMenu" NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Be a sender"
+            <Button Text="Be a sender"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Center" FontSize="Large" />
-            <Label Text="Be a taker"
+            <Button Text="Be a taker"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="Center" FontSize="Large" />
+                HorizontalOptions="Center" FontSize="Large" Clicked="OnTaker" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

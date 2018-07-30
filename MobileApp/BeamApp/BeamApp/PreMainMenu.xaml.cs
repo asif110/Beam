@@ -17,5 +17,10 @@ namespace BeamApp
 			InitializeComponent ();
             
 		}
-	}
+
+        private void OnTaker(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Taker());
+        }
+    }
 }
