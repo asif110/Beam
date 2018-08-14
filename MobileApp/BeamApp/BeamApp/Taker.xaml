@@ -3,18 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeamApp.Taker">
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" Orientation="Horizontal">
-            <Label Text="Take a dcoument"  HorizontalOptions="Center" VerticalOptions="Center"></Label>
-            <Switch x:Name="document" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
-            <StackLayout HorizontalOptions="EndAndExpand"></StackLayout>
-            <Label Text="Take a package"  HorizontalOptions="Center" VerticalOptions="Center"></Label>
-            <Switch x:Name="package" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
-            <StackLayout HorizontalOptions="EndAndExpand"></StackLayout>
-            <Label Text="Carpool"  HorizontalOptions="Center" VerticalOptions="Center"></Label>
-            <Switch x:Name="carpool" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
-            <StackLayout HorizontalOptions="EndAndExpand"></StackLayout>
-            <Button Text="Next" HorizontalOptions="Center"></Button>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <StackLayout Spacing="0" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Text="Take a dcoument"  HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                <Switch x:Name="document" VerticalOptions="Center" ></Switch>
+            </StackLayout>
+
+            <StackLayout Spacing="0" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">        
+                <Label Text="Take a package"  HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                <Switch x:Name="package" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
+            </StackLayout>
+            <StackLayout Spacing="0" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Text="Carpool"  HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                <Switch x:Name="carpool" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
+            </StackLayout>
+            <StackLayout Spacing="0" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
+                
+                <Button Text="Next" HorizontalOptions="Center" Clicked="OnNext"></Button>
+            </StackLayout>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

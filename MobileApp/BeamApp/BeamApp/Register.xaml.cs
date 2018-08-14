@@ -11,7 +11,8 @@ namespace BeamApp
     public partial class Register : ContentPage
     {
         RegisterationController registrationController = new RegisterationController();
-        List<RegisterationController.CountryName> countryList;
+        CityController cityController = new CityController();
+        List<CityController.CountryName> countryList;
         int cityFK;
         int cityTravelTo1FK;
         int cityTravelTo2FK;
@@ -19,7 +20,7 @@ namespace BeamApp
         {
             InitializeComponent();
             
-            countryList = RegisterationController.GetCountries().ToList();
+            countryList = CityController.GetCountries().ToList();
             //countryList.Sort();
 
             //this.country1.ItemsSource = countries;
@@ -65,24 +66,24 @@ namespace BeamApp
         {
             //EnableForm(false);
             string countryCode =  Convert.ToString(countryList[country1.SelectedIndex].CountryId);
-            city1.ItemsSource  = await registrationController.GetCities(countryCode);
+            city1.ItemsSource  = await cityController.GetCities(countryCode);
             //EnableForm(true);
         }
 
         async void OnCountryTravel1Selected(object sender, EventArgs e)
         {
             string countryCode = Convert.ToString(countryList[countryTravel1.SelectedIndex].CountryId);
-            cityTravel1.ItemsSource = await registrationController.GetCities(countryCode);
+            cityTravel1.ItemsSource = await cityController.GetCities(countryCode);
         }
         async void OnCountryTravel2Selected(object sender, EventArgs e)
         {
             string countryCode = Convert.ToString(countryList[countryTravel2.SelectedIndex].CountryId);
-            cityTravel2.ItemsSource = await registrationController.GetCities(countryCode);
+            cityTravel2.ItemsSource = await cityController.GetCities(countryCode);
         }
 
         void OnCitySelected(object sender, EventArgs e)
         {
-            RegisterationController.City city = (RegisterationController.City)city1.SelectedItem;
+            CityController.City city = (CityController.City)city1.SelectedItem;
             if (city != null)
             { 
                 cityFK = city.PK;
@@ -91,7 +92,7 @@ namespace BeamApp
         }
         void OnCityTravelTo1Selected(object sender, EventArgs e)
         {
-            RegisterationController.City city = (RegisterationController.City)cityTravel1.SelectedItem;
+            CityController.City city = (CityController.City)cityTravel1.SelectedItem;
             if (city != null)
             {
                 cityTravelTo1FK = city.PK;
@@ -100,7 +101,7 @@ namespace BeamApp
         }
         void OnCityTravelTo2Selected(object sender, EventArgs e)
         {
-            RegisterationController.City city = (RegisterationController.City)cityTravel2.SelectedItem;
+            CityController.City city = (CityController.City)cityTravel2.SelectedItem;
             if (city != null)
             {
                 cityTravelTo2FK = city.PK;

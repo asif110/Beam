@@ -6,7 +6,7 @@
         <StackLayout>
             <Button Text="Be a sender"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="Center" FontSize="Large" />
+                HorizontalOptions="Center" FontSize="Large" Clicked="OnSender" />
             <Button Text="Be a taker"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Center" FontSize="Large" Clicked="OnTaker" />

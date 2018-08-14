@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeamApp.Request">
+    <ContentPage.Content>
+        <ScrollView>
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20" Padding="50">
+                    <Picker x:Name="countryFrom" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="Country From" Unfocused="OnCountryFromSelected">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Title"/>
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <Picker x:Name="cityFrom" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="City From" Unfocused="OnCityFromSelected">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="NameKey"/>
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <Picker x:Name="countryTo" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="Country To" Unfocused="OnCountryToSelected">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Title"/>
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <Picker x:Name="cityTo" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="City To" Unfocused="OnCityToSelected">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="NameKey"/>
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                <StackLayout Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Urgent"  HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Switch x:Name="package" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
+                </StackLayout>
+                <Label Text="Need to send by"></Label>
+                <DatePicker x:Name="sendByDate" ></DatePicker>
+                <Entry x:Name="flexibility" Placeholder="Flexibility ± days"></Entry>
+                <Entry x:Name="subject" Placeholder="Subject"></Entry>
+                <Entry x:Name="itemDescription" Placeholder="Item Description"></Entry>
+                <Label Text="Upload photo"></Label>
+                 
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

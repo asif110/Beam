@@ -22,5 +22,10 @@ namespace BeamApp
         {
             Navigation.PushAsync(new Taker());
         }
+
+        private void OnSender(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainMenu());
+        }
     }
 }

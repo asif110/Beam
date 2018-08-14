@@ -46,7 +46,7 @@ namespace BeamApp
                     }
                     else //success
                     {
-
+                        App.UserEmail = email;
                     }
                 }
             }

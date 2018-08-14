@@ -16,5 +16,11 @@ namespace BeamApp
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void OnNext(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Itinerary(document.IsToggled,package.IsToggled,carpool.IsToggled));
+            Navigation.RemovePage(this);
+        }
+    }
 }

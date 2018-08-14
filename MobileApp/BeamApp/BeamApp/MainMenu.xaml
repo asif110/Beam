@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeamApp.MainMenu">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Button Text="Send a document request" HorizontalOptions="Center" Clicked="OnDocument"></Button>
+                <Button Text="Send a package request" HorizontalOptions="Center"></Button>
+                <Button Text="Send an accompany request" HorizontalOptions="Center"></Button>
+                <Button Text="Send a carpool request" HorizontalOptions="Center"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
