@@ -33,6 +33,7 @@ namespace BeamApp
                 await DisplayAlert("Login failed", "Incorrect username or password", "OK");
                 this.loginPanel.IsEnabled = true;
                 this.spinner.IsRunning = false;
+                //test
             }
             else
             {
