@@ -35,7 +35,7 @@
                 <Entry x:Name="subject" Placeholder="Subject"></Entry>
                 <Entry x:Name="itemDescription" Placeholder="Item Description"></Entry>
                 <Label Text="Upload photo"></Label>
-                 
+                <!--<Image Source="{local:ImageResource BeamApp.upload.png}"></Image>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

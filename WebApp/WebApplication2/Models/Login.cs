@@ -12,5 +12,6 @@ namespace Beam.Models
     {
         public string Email { get; set; }
         public string Password { get; set; } //TODO encrypt
+        public int userPK { get; set; }
     }
 }

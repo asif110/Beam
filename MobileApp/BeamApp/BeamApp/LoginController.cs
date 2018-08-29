@@ -38,15 +38,15 @@ namespace BeamApp
                 var response = await httpClient.PostAsync(uri, content);
                 if (response.IsSuccessStatusCode)
                 {
-                    //var content = await response.Content.ReadAsStringAsync();
                     string res = await response.Content.ReadAsStringAsync();
-                    if (res.Contains("failed"))
+                    if (res == "0")
                     {
                         return false;
                     }
                     else //success
                     {
                         App.UserEmail = email;
+                        App.UserPK = Convert.ToInt32(res);
                     }
                 }
             }

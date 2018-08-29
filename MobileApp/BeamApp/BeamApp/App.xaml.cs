@@ -8,6 +8,7 @@ namespace BeamApp
 	public partial class App : Application
 	{
         public static string UserEmail = ""; //not a good idea, will need to find alternatives
+        public static int UserPK = 0;
 		public App ()
 		{
 			InitializeComponent();

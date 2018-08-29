@@ -51,9 +51,9 @@ namespace Beam.DAT
             return true;
         }
 
-        public bool Login(string email,string password)
+        public int Login(string email,string password)
         {
-            bool success = false;
+            int userPK = 0;
             try
             {
                using (SqlConnection con = new SqlConnection(m_sConnectionString))
@@ -70,16 +70,16 @@ namespace Beam.DAT
                     DataTable table = new DataTable();
                     table.Load(rdr);
 
-                    success = Convert.ToBoolean(table.Rows[0][0]);
+                    userPK = Convert.ToInt32(table.Rows[0][0]);
                     con.Close();
                 }
             }
             catch (Exception ex)
             {
                 ExcData.RegisterException((int)ExceptionDataAccessLayer.ExceptionEnum.Error, ex.Message);
-                return false;
+                return 0;
             }
-            return success;
+            return userPK;
         }
     }
 }

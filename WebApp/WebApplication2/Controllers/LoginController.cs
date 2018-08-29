@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Web.Http;
 using Beam.Models;
 using Beam.DAT;
-using Beam.Models;
 
 namespace Beam.Controllers
 {
@@ -16,17 +15,14 @@ namespace Beam.Controllers
     {
         // POST: api/Login
         [HttpPost]
-        public string Post([FromBody]Login model)
+        public int Post([FromBody]Login model)
         {
-            string returnVal = "failed";
+            int returnVal = 0;
             ExceptionDataAccessLayer ExcData = new ExceptionDataAccessLayer();
 
             try
             {
-                if (new UserDataAccessLayer().Login(model.Email, model.Password))
-                {
-                    returnVal = "success";
-                }
+                returnVal = new UserDataAccessLayer().Login(model.Email, model.Password);      
             }
             catch (Exception ex)
             {
