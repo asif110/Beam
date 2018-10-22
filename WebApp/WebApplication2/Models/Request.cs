@@ -28,8 +28,8 @@ namespace Beam.Models
         public string Image { get; set; }
         public int Options { get; set; }
         public Boolean ShareOnFacebook { get; set; }
-        public int AccompanyInfoFK { get; set; }
-        public int PackageInfoFK { get; set; }
+        public Nullable<int> AccompanyInfoFK { get; set; }
+        public Nullable<int> PackageInfoFK { get; set; }
         public Boolean IsForwardingAllowed { get; set; }
         public int Status { get; set; }
         public int WillingToPay { get; set; }
