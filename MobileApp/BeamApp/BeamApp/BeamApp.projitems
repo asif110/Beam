@@ -43,6 +43,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)RegisterationController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RequestController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Spinner.xaml.cs">
       <DependentUpon>Spinner.xaml</DependentUpon>
       <SubType>Code</SubType>

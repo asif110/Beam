@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="default-Web.config Connection String" description="default Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:den1.mssql3.gear.host,1433;Initial Catalog=beam;Persist Security Info=False;User ID=beam;Password=Gi19!6-zmkI2;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Beam\\Code\\WebApp\\WebApplication2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='default']/@connectionString" />
+  </parameter>
+</parameters>
