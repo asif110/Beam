@@ -25,17 +25,68 @@
                             <Binding Path="NameKey"/>
                         </Picker.ItemDisplayBinding>
                     </Picker>
-                <StackLayout Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                <StackLayout x:Name="urgentPanel" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
                     <Label Text="Urgent"  HorizontalOptions="Start" VerticalOptions="Center"></Label>
-                    <Switch x:Name="package" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
+                    <Switch x:Name="urgent" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
                 </StackLayout>
-                <Label Text="Need to send by"></Label>
-                <DatePicker x:Name="sendByDate" ></DatePicker>
+                <StackLayout x:Name="sendBy" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label  x:Name="sendByText" Text="Need to send by"></Label>
+                    <DatePicker x:Name="sendByDate" ></DatePicker>
+                </StackLayout>
                 <Entry x:Name="flexibility" Placeholder="Flexibility ± days"></Entry>
                 <Entry x:Name="subject" Placeholder="Subject"></Entry>
-                <Entry x:Name="itemDescription" Placeholder="Item Description"></Entry>
-                <Label Text="Upload photo"></Label>
-                <!--<Image Source="{local:ImageResource BeamApp.upload.png}"></Image>-->
+                <Entry x:Name="itemDescription" Placeholder="Description"></Entry>
+                <Entry x:Name="flightInformationAccompany" Placeholder="Flight Information"></Entry>
+                <StackLayout x:Name="photo" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Button Text="Upload Photo" ></Button>
+                    <Label Text="No photo chosen"></Label>
+                </StackLayout>
+                <StackLayout x:Name="package">
+                    <Entry x:Name="numPackages" Placeholder="Number of Packages"></Entry>
+                    <StackLayout x:Name="Package1Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                        <Entry x:Name="pacakge1WeightEntry" Placeholder="Package 1 Weight"></Entry>
+                        <Picker x:Name="pacakge1WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
+                        <StackLayout x:Name="PhotoPackage1" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Button Text="Upload Package 1 Photo" ></Button>
+                            <Label Text="No photo chosen"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="Package2Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                        <Entry x:Name="pacakge2WeightEntry" Placeholder="Package 2 Weight"></Entry>
+                        <Picker x:Name="pacakge2WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
+                        <StackLayout x:Name="PhotoPackage2" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Button Text="Upload Package 2 Photo" ></Button>
+                            <Label Text="No photo chosen"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="Package3Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                        <Entry x:Name="pacakge3WeightEntry" Placeholder="Package 3 Weight"></Entry>
+                        <Picker x:Name="pacakge3WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
+                        <StackLayout x:Name="PhotoPackage3" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Button Text="Upload Package 3 Photo" ></Button>
+                            <Label Text="No photo chosen"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Spacing="0" Padding="10" VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Send to 1st degree contacts"  HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Switch x:Name="firstDegree" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
+                </StackLayout>
+                <StackLayout Spacing="0" Padding="10" VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Send to 2nd degree contacts"  HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Switch x:Name="secondDegree" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
+                </StackLayout>
+                <StackLayout x:Name="goViral" Spacing="0" Padding="10" VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Go Viral"  HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Switch x:Name="viral" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
+                </StackLayout>
+                <StackLayout Spacing="0" Padding="10" VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Label Text="Share on facebook"  HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Switch x:Name="facebook" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
+                </StackLayout>
+                <StackLayout Spacing="0" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
+                    <Button Text="Send request" HorizontalOptions="Center" Clicked="OnCreateRequest"></Button>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

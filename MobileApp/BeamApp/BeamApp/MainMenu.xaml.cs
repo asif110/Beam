@@ -19,8 +19,21 @@ namespace BeamApp
 
         private void OnDocument(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Request());
+            Navigation.PushAsync(new Request(Request.RequestType.REQUEST_TYPE_DOCUMENT));
         }
 
+        private void OnPackage(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Request(Request.RequestType.REQUEST_TYPE_PACKAGE));
+        }
+        private void OnAccompany(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Request(Request.RequestType.REQUEST_TYPE_ACCOMPANY));
+        }
+
+        private void OnCarpool(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Request(Request.RequestType.REQUEST_CARPOOL));
+        }
     }
 }

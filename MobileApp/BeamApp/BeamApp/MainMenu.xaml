@@ -6,9 +6,9 @@
         <ScrollView>
             <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
                 <Button Text="Send a document request" HorizontalOptions="Center" Clicked="OnDocument"></Button>
-                <Button Text="Send a package request" HorizontalOptions="Center"></Button>
-                <Button Text="Send an accompany request" HorizontalOptions="Center"></Button>
-                <Button Text="Send a carpool request" HorizontalOptions="Center"></Button>
+                <Button Text="Send a package request" HorizontalOptions="Center" Clicked="OnPackage"></Button>
+                <Button Text="Send an accompany request" HorizontalOptions="Center" Clicked="OnAccompany"></Button>
+                <Button Text="Send a carpool request" HorizontalOptions="Center" Clicked="OnCarpool"></Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
