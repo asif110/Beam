@@ -37,8 +37,9 @@ namespace BeamApp
             }
             else
             {
-                await Navigation.PushAsync(new PreMainMenu());
-                 Navigation.RemovePage(this);
+                string UserPK = App.UserPK.ToString();
+                await Navigation.PushAsync(new PreMainMenu(UserPK));
+                Navigation.RemovePage(this);
             }
         }
 

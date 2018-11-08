@@ -38,6 +38,8 @@ namespace Beam.Models
                         RequestController.PK = Convert.ToInt32(rdr["reqPK"]);
                         RequestController.RequestTypeFK = Convert.ToInt32(rdr["reqRequestTypeFK"]);
                         RequestController.FromCityFK = Convert.ToInt32(rdr["reqFromCityFK"]);
+                        RequestController.UserName = Convert.ToString(rdr["usrFirstName"]);
+                        RequestController.UserName = RequestController.UserName + " " + Convert.ToString(rdr["usrLastName"]);
                         RequestController.ToCityFK = Convert.ToInt32(rdr["reqToCityFK"]);
                         RequestController.DateTimeUtc = Convert.ToDateTime(rdr["reqDateTimeUtc"]);
                         RequestController.IsUrgent = Convert.ToBoolean(rdr["reqIsUrgent"]);
@@ -52,6 +54,17 @@ namespace Beam.Models
                         RequestController.IsForwardingAllowed = Convert.ToBoolean(rdr["reqIsForwardingAllowed"]);
                         RequestController.Status = Convert.ToInt32(rdr["reqStatus"]);
                         RequestController.WillingToPay = Convert.ToInt32(rdr["reqWillingToPay"]);
+                        if (RequestController.Status == 0)
+                        { RequestController.StatusDescription = "undecided"; }
+                        else if (RequestController.Status == 1)
+                        { RequestController.StatusDescription = "Accepted by taker "; }
+                        else
+                        {
+                            RequestController.StatusDescription = "Declined by taker";
+                        }
+                        RequestController.FromCitystr = Convert.ToString(rdr["CityFromName"]);
+                        RequestController.ToCitystr = Convert.ToString(rdr["CityToName"]);
+
                         lstRequestController.Add(RequestController);
 
                     }
@@ -65,6 +78,85 @@ namespace Beam.Models
             }
             return lstRequestController;
         }
+
+        public IEnumerable<Request> GetAllRequestReceivedControllers(int sPK, int resUserPK,string reqType)
+        {
+            List<Request> lstRequestController = null;
+            string spName = "";
+            if (reqType=="received")
+            {
+                spName = "ReqGetRequestReceived";
+            }
+            else
+            {
+                spName = "ReqGetRequestSent";
+            }
+            //ReqGetRequestReceived
+            try
+            {
+                lstRequestController = new List<Request>();
+
+                using (SqlConnection con = new SqlConnection(m_sConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(spName, con);
+                    cmd.Parameters.Add(new SqlParameter("@reqPK", sPK));
+                    cmd.Parameters.Add(new SqlParameter("@resUserFK", resUserPK));
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        Request RequestController = new Request();
+
+                        //RequestController.PK = sPK;
+                        RequestController.PK = Convert.ToInt32(rdr["reqPK"]);
+                        RequestController.ReqDescritption = Convert.ToString(rdr["rtpDescritption"]);
+                        RequestController.UserName = Convert.ToString(rdr["usrFirstName"]);
+                        RequestController.UserName = RequestController.UserName + " " + Convert.ToString(rdr["usrLastName"]);
+                        RequestController.RequestTypeFK = Convert.ToInt32(rdr["reqRequestTypeFK"]);
+                        RequestController.FromCityFK = Convert.ToInt32(rdr["reqFromCityFK"]);
+                        RequestController.ToCityFK = Convert.ToInt32(rdr["reqToCityFK"]);
+                        RequestController.DateTimeUtc = Convert.ToDateTime(rdr["reqDateTimeUtc"]);
+                        RequestController.IsUrgent = Convert.ToBoolean(rdr["reqIsUrgent"]);
+                        RequestController.FlexibilityDays = Convert.ToInt32(rdr["reqFlexibilityDays"]);
+                        RequestController.Subject = rdr["reqSubject"].ToString();
+                        RequestController.ItemDescription = rdr["reqItemDescription"].ToString();
+                        RequestController.Image = Convert.ToString(rdr["reqImage"]);
+                        RequestController.Options = Convert.ToInt32(rdr["reqOptions"]);
+                        RequestController.ShareOnFacebook = Convert.ToBoolean(rdr["reqShareOnFacebook"]);
+                        RequestController.AccompanyInfoFK = Convert.ToInt32(rdr["reqaAccompanyInfoFK"]);
+                        RequestController.PackageInfoFK = Convert.ToInt32(rdr["reqPackageInfoFK"]);
+                        RequestController.IsForwardingAllowed = Convert.ToBoolean(rdr["reqIsForwardingAllowed"]);
+                        RequestController.Status = Convert.ToInt32(rdr["reqStatus"]);
+                        RequestController.WillingToPay = Convert.ToInt32(rdr["reqWillingToPay"]);
+                        RequestController.ReqSubject = Convert.ToString(rdr["reqSubject"]);
+                        if (RequestController.Status == 0)
+                        { RequestController.StatusDescription = "undecided"; }
+                        else if (RequestController.Status == 1)
+                        { RequestController.StatusDescription = "Accepted by taker "; }
+                        else
+                        {
+                            RequestController.StatusDescription = "Declined by taker";
+                        }
+                        RequestController.FromCitystr = Convert.ToString(rdr["CityFromName"]);
+                        RequestController.ToCitystr = Convert.ToString(rdr["CityToName"]);
+
+                        lstRequestController.Add(RequestController);
+                        
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ExcData.RegisterException((int)ExceptionDataAccessLayer.ExceptionEnum.Error, ex.Message);
+            }
+            return lstRequestController;
+        }
+
 
         public bool RequestInsert(Request request)
         {
@@ -156,6 +248,36 @@ namespace Beam.Models
             return true;
         }
 
+        public bool RequestStatusUpdate(Request request)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(m_sConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("ReqUpdateRequestStatus", con);
+
+                    //ALTER PROCEDURE [dbo].[UsrRegisterUser] @email VARCHAR(254),@pass VARCHAR(10), @phone VARCHAR(10), @fName NCHAR(24), @lName NCHAR(24), 
+                    //@cityFK INT, @cityTravelTo1FK INT, @cityTravel2FK INT
+                    cmd.Parameters.Add(new SqlParameter("@reqPK", request.PK));
+                    
+                    cmd.Parameters.Add(new SqlParameter("@reqStatus", request.Status));
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExcData.RegisterException((int)ExceptionDataAccessLayer.ExceptionEnum.Error, ex.Message);
+
+                return false;
+            }
+            return true;
+        }
+
         // DELETE api/values/5
         public bool RequestDelete(int sPK)
         {
@@ -165,7 +287,7 @@ namespace Beam.Models
                 {
                     SqlCommand cmd = new SqlCommand("ReqDeleteRequest", con);
                     cmd.Parameters.Add(new SqlParameter("@reqPK", sPK));
-                   
+
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     con.Open();

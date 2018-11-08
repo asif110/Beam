@@ -12,11 +12,13 @@ namespace BeamApp
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PreMainMenu : ContentPage
 	{
-		public PreMainMenu ()
+        string UserPk;
+		public PreMainMenu (string Pk)
 		{
 			InitializeComponent ();
-            
-		}
+            UserPk = Pk;
+
+        }
 
         private void OnTaker(object sender, EventArgs e)
         {
@@ -26,6 +28,15 @@ namespace BeamApp
         private void OnSender(object sender, EventArgs e)
         {
             Navigation.PushAsync(new MainMenu());
+        }
+
+        private void OnReceive(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Inbox(UserPk));
+        }
+        private void OnSent(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SendBox(UserPk));
         }
     }
 }

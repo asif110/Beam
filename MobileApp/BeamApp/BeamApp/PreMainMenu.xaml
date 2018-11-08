@@ -10,6 +10,13 @@
             <Button Text="Be a taker"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Center" FontSize="Large" Clicked="OnTaker" />
+            <Button Text="Inbox"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Center" FontSize="Large" Clicked="OnReceive" />
+            <Button Text="Sent Request"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Center" FontSize="Large" Clicked="OnSent" />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

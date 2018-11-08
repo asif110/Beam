@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeamApp.InboxDetails">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
+            <Label x:Name="lblName" Text=""></Label>
+            
+
+
+            <StackLayout>
+                <Label x:Name="lblFromCity" Text= "" FontSize="Medium"></Label>
+                <Label x:Name="lblToCity" Text= "" FontSize="Medium"></Label>
+                <Label x:Name="lblSituation" Text= "" FontSize="Medium"></Label>
+                <Label x:Name="DateTimeUtc" Text="{Binding DateTimeUtc}" FontSize="Medium"></Label>
+                <Label  x:Name="FlexibilityDays" Text="{Binding FlexibilityDays}" FontSize="Medium"></Label>
+                <Label x:Name="lblItemDescription" Text= "{Binding ItemDescription}" FontSize="Medium" ></Label>
+
+                
+               
+                <!--<Label  x:Name="ReqSubject" Text="{Binding ReqSubject}" FontSize="Default"></Label>-->
+
+            </StackLayout>
+
+            <Button Text="View Chat" TextColor="Black" BackgroundColor="##ff77D065" ></Button>
+            <Button Text="Accept request" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnAccept"></Button>
+            <Button Text="Decline Request" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnDecline"></Button>
+            <Button Text="Forward Request" TextColor="Black" BackgroundColor="##ff77D065" ></Button>
+            <Image  x:Name="img" Source="https://xamarin.com/content/images/pages/forms/example-app.png" />
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

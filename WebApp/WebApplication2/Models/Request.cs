@@ -33,5 +33,13 @@ namespace Beam.Models
         public Boolean IsForwardingAllowed { get; set; }
         public int Status { get; set; }
         public int WillingToPay { get; set; }
+        public string ReqDescritption { get; set; }
+        public string StatusDescription { get; set; }
+        public string UserName { get; set; }
+        public string ReqSubject { get; set; }
+        public Boolean IsStatusChange { get; set; }
+        public string FromCitystr { get; set; }
+        public string ToCitystr { get; set; }
+
     }
 }

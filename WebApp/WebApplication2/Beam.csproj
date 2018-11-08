@@ -41,7 +41,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -234,6 +234,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\beam - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\beam - FTP1.pubxml" />
+    <None Include="Properties\PublishProfiles\beam - FTP2.pubxml" />
+    <None Include="Properties\PublishProfiles\beam - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\beam - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\beam - Web Deploy2.pubxml" />
     <None Include="Properties\PublishProfiles\beamnzmvctest - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\beamnzmvctest - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
