@@ -186,6 +186,7 @@ namespace Beam.Models
                     cmd.Parameters.Add(new SqlParameter("@reqIsForwardingAllowed", request.IsForwardingAllowed));
                     cmd.Parameters.Add(new SqlParameter("@reqStatus", request.Status));
                     cmd.Parameters.Add(new SqlParameter("@reqWillingToPay", request.WillingToPay));
+                    cmd.Parameters.Add(new SqlParameter("@reqFlightInformation", request.FlightInformation));
 
                     cmd.CommandType = CommandType.StoredProcedure;
 

@@ -29,7 +29,7 @@ namespace Beam.Models
         public int Options { get; set; }
         public Boolean ShareOnFacebook { get; set; }
         public Nullable<int> AccompanyInfoFK { get; set; }
-        public Nullable<int> PackageInfoFK { get; set; }
+        public Nullable<int> PackageInfoFK { get; set; } //TODO remove
         public Boolean IsForwardingAllowed { get; set; }
         public int Status { get; set; }
         public int WillingToPay { get; set; }
@@ -40,6 +40,7 @@ namespace Beam.Models
         public Boolean IsStatusChange { get; set; }
         public string FromCitystr { get; set; }
         public string ToCitystr { get; set; }
+        public string FlightInformation { get; set; }
 
     }
 }

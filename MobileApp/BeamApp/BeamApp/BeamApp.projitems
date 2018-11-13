@@ -51,6 +51,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)RegisterationController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RequestController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SendBox.xaml.cs">
       <DependentUpon>SendBox.xaml</DependentUpon>
       <SubType>Code</SubType>

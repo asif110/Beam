@@ -35,6 +35,10 @@ namespace BeamApp
             countryFrom.ItemsSource = m_countryList.ToList();
             countryTo.ItemsSource = m_countryList.ToList();
             Title = "Request";
+            firstDegreeSL.IsVisible = false;
+            secondDegreeSL.IsVisible = false;
+            goViral.IsVisible = false;
+
 
             switch (requestType)
             {
@@ -127,7 +131,7 @@ namespace BeamApp
 
             bool result = await requestController.CreateRequest(m_requestType, m_iCityFrom, m_iCityTo, sendByDate.Date, urgent.IsToggled,
                                                                 flexibilityDays, subject.Text, itemDescription.Text, "TBI", options,
-                                                                facebook.IsToggled);
+                                                                facebook.IsToggled,Convert.ToInt32( willingToPay.Text),flightInformationAccompany.Text);
 
             if (result)
             {

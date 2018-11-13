@@ -34,6 +34,7 @@ namespace BeamApp
         public Boolean IsForwardingAllowed { get; set; }
         public int Status { get; set; }
         public int WillingToPay { get; set; }
+        public string FlightInformation { get; set; }
     };
     class RequestController : Controller
     {
@@ -45,7 +46,7 @@ namespace BeamApp
         }
 
         public async Task<bool> CreateRequest(Request.RequestType requestType, int fromCityFK, int toCityFK, DateTime dateTime, bool isUrgent, 
-            int flexibility, string subject,string itemDescription,string image,int options, bool shareOnFacebook)
+            int flexibility, string subject,string itemDescription,string image,int options, bool shareOnFacebook, int willingToPay, string flightInformation)
         {
             try
             {
@@ -64,6 +65,8 @@ namespace BeamApp
                     Options = options,
                     PackageInfoFK = null,
                     AccompanyInfoFK = null,
+                    WillingToPay = willingToPay,
+                    FlightInformation = flightInformation 
                 };
 
                 string json = JsonConvert.SerializeObject(request, Formatting.Indented);

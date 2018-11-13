@@ -27,3 +27,9 @@ MobileApp/BeamApp/BeamApp.Android/bin/Debug/com.Beam.BeamApp-armeabi-v7a.apk
 MobileApp/BeamApp/BeamApp.Android/bin/Debug/com.Beam.BeamApp-armeabi.apk
 MobileApp/BeamApp/BeamApp/BeamApp.projitems
 MobileApp/BeamApp/BeamApp/BeamApp.projitems
+*.user
+*.user
+*.dll
+*.mdb
+*.pdb
+*.apk
