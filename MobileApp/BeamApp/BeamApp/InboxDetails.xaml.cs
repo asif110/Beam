@@ -100,7 +100,7 @@ namespace BeamApp
             rp.Status = 1;
 
             var action = await DisplayAlert("Notification", "Are you sure to accept?", "No", "Yes");
-            if (action)
+            if (action != true)
             {
                 //  Navigate to first page
                 UpdateStatus(rp);
@@ -126,7 +126,7 @@ namespace BeamApp
             rp.Status = 2;
 
             var action = await DisplayAlert("Notification", "Are you sure to Decline?", "No", "Yes");
-            if (action)
+            if (action != true)
             {
 
                 UpdateStatus(rp);

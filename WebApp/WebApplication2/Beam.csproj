@@ -177,6 +177,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAT\CityDataAccessLayer.cs" />
+    <Compile Include="DAT\ChatDataAccessLayer.cs" />
     <Compile Include="DAT\RequestDataAccessLayer.cs" />
     <Compile Include="DAT\CountryDataAccessLayer.cs" />
     <Compile Include="DAT\ExceptionDataAccessLayer.cs" />
@@ -195,6 +197,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Chat.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\FormModel.cs" />
