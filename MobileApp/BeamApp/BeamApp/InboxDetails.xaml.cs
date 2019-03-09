@@ -34,6 +34,15 @@ namespace BeamApp
             UPk = UserPK;
         }
 
+        async void OnChat(object sender, EventArgs e)
+        {
+            if (rp.PK.ToString() != "")
+            {
+                await Navigation.PushAsync(new ChatDetail(rp.PK.ToString()));
+               
+            }
+        }
+
         //protected override bool OnBackButtonPressed()
         //{
         //    BackButtonPressed();
