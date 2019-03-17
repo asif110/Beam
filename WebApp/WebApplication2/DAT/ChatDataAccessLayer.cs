@@ -14,7 +14,7 @@ namespace Beam.Models
         string m_sConnectionString = ConfigurationManager.ConnectionStrings["default"].ConnectionString;
         ExceptionDataAccessLayer ExcData = new ExceptionDataAccessLayer();
 
-        public IEnumerable<Chat> GetAllChat(int sPK)
+        public IEnumerable<Chat> GetAllChat(int RequestId)
         {
             List<Chat> lstChatController = null;
             try
@@ -24,7 +24,7 @@ namespace Beam.Models
                 using (SqlConnection con = new SqlConnection(m_sConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand("ReqGetChat", con);
-                    cmd.Parameters.Add(new SqlParameter("@reqPK", sPK));
+                    cmd.Parameters.Add(new SqlParameter("@RequestId", RequestId));
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     con.Open();
@@ -34,10 +34,15 @@ namespace Beam.Models
                     {
                         Chat ChatController = new Chat();
 
-                        ChatController.PK = sPK;
-                        ChatController.PK = Convert.ToInt32(rdr["chatPK"]);
-                        ChatController.ChatMessage = Convert.ToString(rdr["ChatMessage"]);
-                        
+                        //ChatController.PK = sPK;
+                        ChatController.PK = Convert.ToInt32(rdr["rclPK"]);
+                        ChatController.ChatMessage = Convert.ToString(rdr["rclText"] + "");
+                        ChatController.IsRead = Convert.ToBoolean(rdr["rclIsRead"]);
+                        ChatController.SentDate = Convert.ToDateTime(rdr["rclSentDateTime"]);
+                        ChatController.ReceivedDate = Convert.ToDateTime(rdr["rclReceivedTime"]);
+                        ChatController.FromId = Convert.ToString(rdr["rclFrom"]);
+                        ChatController.ToId = Convert.ToString(rdr["rclTo"]);
+
 
                         lstChatController.Add(ChatController);
 
@@ -62,14 +67,19 @@ namespace Beam.Models
             {
                 using (SqlConnection con = new SqlConnection(m_sConnectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("InsertChat", con);
+                    SqlCommand cmd = new SqlCommand("ReqInsertChatLog", con);
 
                     //ALTER PROCEDURE [dbo].[UsrRegisterUser] @email VARCHAR(254),@pass VARCHAR(10), @phone VARCHAR(10), @fName NCHAR(24), @lName NCHAR(24), 
                     //@cityFK INT, @cityTravelTo1FK INT, @cityTravel2FK INT
                     
                     //cmd.Parameters.Add(new SqlParameter("@ChatPK", Chat.PK));
-                    cmd.Parameters.Add(new SqlParameter("@ChatMessage", Chat.ChatMessage));
-                   
+                    cmd.Parameters.Add(new SqlParameter("@strMessage", Chat.ChatMessage));
+                    cmd.Parameters.Add(new SqlParameter("@ChatImage", ""));
+                    cmd.Parameters.Add(new SqlParameter("@RequestId", Chat.RequestId));
+                    cmd.Parameters.Add(new SqlParameter("@FromId", Convert.ToInt32(Chat.FromId)));
+                    cmd.Parameters.Add(new SqlParameter("@ToId", Convert.ToInt32(Chat.ToId)));
+                    cmd.Parameters.Add(new SqlParameter("@ChatDate", System.DateTime.Now));
+
 
                     cmd.CommandType = CommandType.StoredProcedure;
 

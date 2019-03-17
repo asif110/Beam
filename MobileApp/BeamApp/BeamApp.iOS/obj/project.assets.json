@@ -729,11 +729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Pooja\\Beam\\Beam\\MobileApp\\BeamApp\\BeamApp.iOS\\BeamApp.iOS.csproj",
+      "projectUniqueName": "D:\\BeamOriginal\\Beam\\MobileApp\\BeamApp\\BeamApp.iOS\\BeamApp.iOS.csproj",
       "projectName": "BeamApp.iOS",
-      "projectPath": "D:\\Pooja\\Beam\\Beam\\MobileApp\\BeamApp\\BeamApp.iOS\\BeamApp.iOS.csproj",
+      "projectPath": "D:\\BeamOriginal\\Beam\\MobileApp\\BeamApp\\BeamApp.iOS\\BeamApp.iOS.csproj",
       "packagesPath": "C:\\Users\\patha\\.nuget\\packages\\",
-      "outputPath": "D:\\Pooja\\Beam\\Beam\\MobileApp\\BeamApp\\BeamApp.iOS\\obj\\",
+      "outputPath": "D:\\BeamOriginal\\Beam\\MobileApp\\BeamApp\\BeamApp.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

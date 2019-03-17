@@ -18,7 +18,14 @@ namespace Beam.Models
         //data retrieved
         public int PK { get; set; }
         public string ChatMessage { get; set; }
-       
+        public string FromId { get; set; }
+        public string ToId { get; set; }
+        public int RequestId { get; set; }
+       // public string ChatImage { get; set; }
+        public Boolean IsRead { get; set; }
+        public DateTime SentDate { get; set; }
+        public DateTime ReceivedDate { get; set; }
+
 
     }
 }

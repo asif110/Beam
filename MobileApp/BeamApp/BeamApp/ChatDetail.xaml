@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeamApp.ChatDetail"
+             Title="Detail">
+    <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
+        <Label x:Name="lblName" Text=""></Label>
+
+
+
+        <StackLayout>
+            <Label x:Name="lblchat" Text="Chat" FontSize="Medium" >
+              
+            </Label>
+           
+
+            <Label x:Name="lblChatMessage" Text= "{Binding rclText}" FontSize="Medium" ></Label>
+            <Entry Placeholder="Enter Chat" x:Name="chat"></Entry>
+
+
+
+        </StackLayout>
+
+        <Button Text="Sent" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnSendChat"></Button>
+
+    </StackLayout>
+</ContentPage>

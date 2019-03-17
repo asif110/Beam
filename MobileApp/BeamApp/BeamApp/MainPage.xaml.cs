@@ -25,7 +25,7 @@ namespace BeamApp
             this.spinner.IsRunning = true;
             string email = this.email.Text;
             string password = this.password.Text;
-            
+           
             LoginController loginController = new LoginController();
             bool result = await loginController.Login(email,password);
             if (!result)

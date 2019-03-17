@@ -22,7 +22,7 @@
 
             </StackLayout>
 
-            <Button Text="View Chat" TextColor="Black" BackgroundColor="##ff77D065" ></Button>
+            <Button Text="View Chat" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnChat"></Button>
             <Button Text="Accept request" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnAccept"></Button>
             <Button Text="Decline Request" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnDecline"></Button>
             <Button Text="Forward Request" TextColor="Black" BackgroundColor="##ff77D065" ></Button>

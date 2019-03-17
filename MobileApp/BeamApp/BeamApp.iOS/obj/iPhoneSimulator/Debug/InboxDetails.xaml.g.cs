@@ -13,7 +13,7 @@
 namespace BeamApp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Pooja\\Beam\\Beam\\MobileApp\\BeamApp\\BeamApp\\InboxDetails.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\BeamOriginal\\Beam\\MobileApp\\BeamApp\\BeamApp\\InboxDetails.xaml")]
     public partial class InboxDetails : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

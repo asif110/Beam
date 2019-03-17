@@ -786,11 +786,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Pooja\\Beam\\Beam\\MobileApp\\BeamApp\\BeamApp.Android\\BeamApp.Android.csproj",
+      "projectUniqueName": "D:\\BeamOriginal\\Beam\\MobileApp\\BeamApp\\BeamApp.Android\\BeamApp.Android.csproj",
       "projectName": "BeamApp.Android",
-      "projectPath": "D:\\Pooja\\Beam\\Beam\\MobileApp\\BeamApp\\BeamApp.Android\\BeamApp.Android.csproj",
+      "projectPath": "D:\\BeamOriginal\\Beam\\MobileApp\\BeamApp\\BeamApp.Android\\BeamApp.Android.csproj",
       "packagesPath": "C:\\Users\\patha\\.nuget\\packages\\",
-      "outputPath": "D:\\Pooja\\Beam\\Beam\\MobileApp\\BeamApp\\BeamApp.Android\\obj\\",
+      "outputPath": "D:\\BeamOriginal\\Beam\\MobileApp\\BeamApp\\BeamApp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
