@@ -85,6 +85,7 @@ namespace BeamApp
         public string ReqDescritption { get; set; }
         public string ReqSubject { get; set; }
         public string UserName { get; set; }
+        public string Email { get; set; }
         public Boolean IsStatusChange { get; set; }
         public string FromCitystr { get; set; }
         public string ToCitystr { get; set; }

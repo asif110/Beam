@@ -69,7 +69,10 @@ namespace BeamApp
 
             DateTimeUtc.Text = "Send by: "+ requestPropertyient[0].DateTimeUtc.ToString();
             FlexibilityDays.Text = "Flexibility:" + " " + requestPropertyient[0].FlexibilityDays.ToString();
-            lblName.Text = requestPropertyient[0].UserName.ToString();
+            //lblName.Text = requestPropertyient[0].UserName.ToString();
+            //Asif 20180317 display first part of email instead of name
+            lblName.Text = requestPropertyient[0].Email.Split('@')[0];
+
 
             lblFromCity.Text = "Document Origin: "+ requestPropertyient[0].FromCitystr.ToString();
 
