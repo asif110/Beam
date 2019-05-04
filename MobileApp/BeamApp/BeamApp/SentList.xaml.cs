@@ -9,50 +9,55 @@ using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-
 namespace BeamApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SendBox : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class SentList : ContentPage
     {
-        string Upk = "";
-        public SendBox(string UserPK)
+        string RequestId = "";
+        string UId = "";
+
+        public SentList(string ReqId, string UserId)
         {
             InitializeComponent();
-            GetRequest(UserPK);
-            Upk = UserPK;
+            GetRequest(ReqId);
+            RequestId = ReqId;
+            UId = UserId;
         }
+
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
-                var selection = e.SelectedItem as ReuestSentProperty;
+                var selection = e.SelectedItem as ReuestReceiverProperty;
 
-                await Navigation.PushAsync(new SentList(selection.PK.ToString(),Upk));
+                await Navigation.PushAsync(new InboxDetails(selection.PK.ToString(), UId, "sent", selection.ReceivedUserFK));
                 //await Navigation.PushAsync(new RequestDocument());
 
 
             }
         }
 
-        private async void GetRequest(string UserPK)
+        private async void GetRequest(string RequestId)
         {
             
 
             HttpClient client = new HttpClient();
-            List<ReuestSentProperty> reqList = new List<ReuestSentProperty>();
+            List<ReuestReceiverProperty> reqList = new List<ReuestReceiverProperty>();
             //var response = await client.GetStringAsync("http://beam.gear.host/api/Request?id=0&resUserFK=" + UserPK.ToString());
-            var response = await client.GetStringAsync("http://beam.gear.host/api/Request?id=0&resUserFK=" + UserPK.ToString() + "&reqType=sent");
+            var response = await client.GetStringAsync("http://beam.gear.host/api/Request?id=" + RequestId + "&resUserFK=0&reqType=''");
 
-            var request = JsonConvert.DeserializeObject<List<ReuestSentProperty>>(response);
+            var request = JsonConvert.DeserializeObject<List<ReuestReceiverProperty>>(response);
             reqList = request;
-            MainListView.ItemsSource = request;
+            
+            MN.ItemsSource = request;
+
         }
 
 
 
     }
-    public class ReuestSentProperty
+    public class ReuestReceiverProperty
     {
 
         ////to get data

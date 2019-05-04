@@ -12,9 +12,9 @@ namespace Beam.Models
         string returnVal = "failed";
 
         [HttpGet]
-        public IEnumerable<Chat> Get(int id)
+        public IEnumerable<Chat> Get(int id, int FromId, int ToId)
         {
-            return new ChatDataAccessLayer().GetAllChat(id);
+            return new ChatDataAccessLayer().GetAllChat(id, FromId,ToId);
         }
 
       

@@ -79,17 +79,88 @@ namespace Beam.Models
             return lstRequestController;
         }
 
+        public IEnumerable<Request> GetRequestByReceiverControllers(int sPK, int UserId)
+        {
+            List<Request> lstRequestController = null;
+            try
+            {
+                lstRequestController = new List<Request>();
+
+                using (SqlConnection con = new SqlConnection(m_sConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("ReqGetRequestbyReceiver", con);
+                    cmd.Parameters.Add(new SqlParameter("@reqPK", sPK));
+                    cmd.Parameters.Add(new SqlParameter("@resUserFK", UserId));
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        Request RequestController = new Request();
+
+                        RequestController.PK = sPK;
+                        RequestController.PK = Convert.ToInt32(rdr["reqPK"]);
+                        RequestController.RequestTypeFK = Convert.ToInt32(rdr["reqRequestTypeFK"]);
+                        RequestController.FromCityFK = Convert.ToInt32(rdr["reqFromCityFK"]);
+                        RequestController.UserName = Convert.ToString(rdr["usrFirstName"]);
+                        RequestController.UserName = RequestController.UserName + " " + Convert.ToString(rdr["usrLastName"]);
+                        RequestController.ToCityFK = Convert.ToInt32(rdr["reqToCityFK"]);
+                        RequestController.DateTimeUtc = Convert.ToDateTime(rdr["reqDateTimeUtc"]);
+                        RequestController.IsUrgent = Convert.ToBoolean(rdr["reqIsUrgent"]);
+                        RequestController.FlexibilityDays = Convert.ToInt32(rdr["reqFlexibilityDays"]);
+                        RequestController.Subject = rdr["reqToCityFK"].ToString();
+                        RequestController.ItemDescription = rdr["reqItemDescription"].ToString();
+                        RequestController.Image = Convert.ToString(rdr["reqImage"]);
+                        RequestController.Options = Convert.ToInt32(rdr["reqOptions"]);
+                        RequestController.ShareOnFacebook = Convert.ToBoolean(rdr["reqShareOnFacebook"]);
+                        RequestController.AccompanyInfoFK = Convert.ToInt32(rdr["reqaAccompanyInfoFK"]);
+                        RequestController.PackageInfoFK = Convert.ToInt32(rdr["reqPackageInfoFK"]);
+                        RequestController.IsForwardingAllowed = Convert.ToBoolean(rdr["reqIsForwardingAllowed"]);
+                        RequestController.Status = Convert.ToInt32(rdr["reqStatus"]);
+                        RequestController.WillingToPay = Convert.ToInt32(rdr["reqWillingToPay"]);
+                        if (RequestController.Status == 0)
+                        { RequestController.StatusDescription = "undecided"; }
+                        else if (RequestController.Status == 1)
+                        { RequestController.StatusDescription = "Accepted by taker "; }
+                        else
+                        {
+                            RequestController.StatusDescription = "Declined by taker";
+                        }
+                        RequestController.FromCitystr = Convert.ToString(rdr["CityFromName"]);
+                        RequestController.ToCitystr = Convert.ToString(rdr["CityToName"]);
+
+                        lstRequestController.Add(RequestController);
+
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ExcData.RegisterException((int)ExceptionDataAccessLayer.ExceptionEnum.Error, ex.Message);
+            }
+            return lstRequestController;
+        }
+
         public IEnumerable<Request> GetAllRequestReceivedControllers(int sPK, int resUserPK,string reqType)
         {
             List<Request> lstRequestController = null;
             string spName = "";
-            if (reqType=="received")
+            if (reqType == "received")
             {
                 spName = "ReqGetRequestReceived";
             }
-            else
+            else if (reqType == "sent")
             {
                 spName = "ReqGetRequestSent";
+            }
+            else
+            {
+                spName = "ReqReceivers";
             }
             //ReqGetRequestReceived
             try
@@ -113,6 +184,9 @@ namespace Beam.Models
                         //RequestController.PK = sPK;
                         RequestController.PK = Convert.ToInt32(rdr["reqPK"]);
                         RequestController.ReqDescritption = Convert.ToString(rdr["rtpDescritption"]);
+                        RequestController.reqCreatedUserFK = Convert.ToString(rdr["reqCreatedUserFK"]);
+                        RequestController.ReceivedUserFK = Convert.ToString(rdr["rqsReceivedUserFK"]);
+
                         RequestController.UserName = Convert.ToString(rdr["usrFirstName"]);
                         RequestController.UserName = RequestController.UserName + " " + Convert.ToString(rdr["usrLastName"]);
                         RequestController.RequestTypeFK = Convert.ToInt32(rdr["reqRequestTypeFK"]);

@@ -14,22 +14,32 @@ namespace Beam.Models
         string m_sConnectionString = ConfigurationManager.ConnectionStrings["default"].ConnectionString;
         ExceptionDataAccessLayer ExcData = new ExceptionDataAccessLayer();
 
-        public IEnumerable<Chat> GetAllChat(int RequestId)
+        public IEnumerable<Chat> GetAllChat(int RequestId,int FromId, int ToId)
         {
             List<Chat> lstChatController = null;
             try
             {
+                //const int a = 10;
+                //readonly int b = 12;
+                ////readonly int myInt = 5; //directly
+
+                //b = a +1;
+
+
                 lstChatController = new List<Chat>();
 
                 using (SqlConnection con = new SqlConnection(m_sConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand("ReqGetChat", con);
                     cmd.Parameters.Add(new SqlParameter("@RequestId", RequestId));
+                    cmd.Parameters.Add(new SqlParameter("@FromId", FromId));
+                    cmd.Parameters.Add(new SqlParameter("@ToId", ToId));
+
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     con.Open();
                     SqlDataReader rdr = cmd.ExecuteReader();
-
+                    
                     while (rdr.Read())
                     {
                         Chat ChatController = new Chat();
@@ -40,8 +50,8 @@ namespace Beam.Models
                         ChatController.IsRead = Convert.ToBoolean(rdr["rclIsRead"]);
                         ChatController.SentDate = Convert.ToDateTime(rdr["rclSentDateTime"]);
                         ChatController.ReceivedDate = Convert.ToDateTime(rdr["rclReceivedTime"]);
-                        ChatController.FromId = Convert.ToString(rdr["rclFrom"]);
-                        ChatController.ToId = Convert.ToString(rdr["rclTo"]);
+                        ChatController.FromId = Convert.ToInt32(rdr["rclFrom"]);
+                        ChatController.ToId = Convert.ToInt32(rdr["rclTo"]);
 
 
                         lstChatController.Add(ChatController);

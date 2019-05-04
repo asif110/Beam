@@ -34,6 +34,8 @@ namespace Beam.Models
         public int Status { get; set; }
         public int WillingToPay { get; set; }
         public string ReqDescritption { get; set; }
+        public string reqCreatedUserFK { get; set; }
+        public string ReceivedUserFK { get; set; }
         public string StatusDescription { get; set; }
         public string UserName { get; set; }
         public string ReqSubject { get; set; }
