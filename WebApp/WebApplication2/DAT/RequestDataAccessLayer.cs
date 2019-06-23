@@ -40,6 +40,7 @@ namespace Beam.Models
                         RequestController.FromCityFK = Convert.ToInt32(rdr["reqFromCityFK"]);
                         RequestController.UserName = Convert.ToString(rdr["usrFirstName"]);
                         RequestController.UserName = RequestController.UserName + " " + Convert.ToString(rdr["usrLastName"]);
+                        RequestController.Email = Convert.ToString(rdr["usrEmail"]);
                         RequestController.ToCityFK = Convert.ToInt32(rdr["reqToCityFK"]);
                         RequestController.DateTimeUtc = Convert.ToDateTime(rdr["reqDateTimeUtc"]);
                         RequestController.IsUrgent = Convert.ToBoolean(rdr["reqIsUrgent"]);
@@ -189,6 +190,7 @@ namespace Beam.Models
 
                         RequestController.UserName = Convert.ToString(rdr["usrFirstName"]);
                         RequestController.UserName = RequestController.UserName + " " + Convert.ToString(rdr["usrLastName"]);
+                        RequestController.Email = Convert.ToString(rdr["usrEmail"]);
                         RequestController.RequestTypeFK = Convert.ToInt32(rdr["reqRequestTypeFK"]);
                         RequestController.FromCityFK = Convert.ToInt32(rdr["reqFromCityFK"]);
                         RequestController.ToCityFK = Convert.ToInt32(rdr["reqToCityFK"]);

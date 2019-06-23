@@ -66,7 +66,25 @@ namespace BeamApp
         private void ShowPackage()
         {
             flightInformationAccompany.IsVisible = false;
-            photo.IsVisible = false;
+            photo.IsVisible = false;            
+            Package1.IsEnabled = false;
+            Package2.IsEnabled = false;
+            Package3.IsEnabled = false;
+           
+        }
+
+        async void PackagesSelected(object sender, EventArgs e)
+        {
+            Package1.IsEnabled = false;
+            Package2.IsEnabled = false;
+            Package3.IsEnabled = false;
+            int numPackage = Convert.ToInt32(numPackages.Text);
+            if (numPackage >= 1)
+                Package1.IsEnabled = true;
+            if (numPackage >= 2)
+                Package2.IsEnabled = true;
+            if (numPackage >= 3)
+                Package3.IsEnabled = true;
         }
 
         private void ShowAccompany()

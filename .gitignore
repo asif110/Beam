@@ -33,3 +33,5 @@ MobileApp/BeamApp/BeamApp/BeamApp.projitems
 *.mdb
 *.pdb
 *.apk
+*.user
+MobileApp/BeamApp/BeamApp.Android/BeamApp.Android.csproj.user

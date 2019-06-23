@@ -13,7 +13,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Vertical" Padding="20">
-                                <Label Text="{Binding UserName}" FontSize="Medium"></Label>
+                                <Label Text="{Binding Email}" FontSize="Medium"></Label>
                                 <Label Text="{Binding ReqDescritption}" FontSize="Medium"></Label>
                                 <Label Text="{Binding StatusDescription}" FontSize="Default"></Label>
                                 <Label Text="{Binding reqCreatedUserFK}" IsVisible="False" FontSize="Default"></Label>

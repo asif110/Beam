@@ -42,29 +42,62 @@
                     <Label Text="No photo chosen"></Label>
                 </StackLayout>
                 <StackLayout x:Name="package">
-                    <Entry x:Name="numPackages" Placeholder="Number of Packages"></Entry>
-                    <StackLayout x:Name="Package1Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
-                        <Entry x:Name="pacakge1WeightEntry" Placeholder="Package 1 Weight"></Entry>
-                        <Picker x:Name="pacakge1WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
-                        <StackLayout x:Name="PhotoPackage1" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
-                            <Button Text="Upload Package 1 Photo" ></Button>
-                            <Label Text="No photo chosen"></Label>
+                    <Entry x:Name="numPackages" Placeholder="Number of Packages" Keyboard="Numeric" Unfocused="PackagesSelected"></Entry>
+                    <StackLayout x:Name="Package1">
+                        <StackLayout x:Name="Package1Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Entry x:Name="pacakge1WeightEntry" Placeholder="Package 1 Weight"></Entry>
+                            <Picker x:Name="pacakge1WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
+                            <StackLayout x:Name="PhotoPackage1" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                                <Button Text="Upload Package 1 Photo" ></Button>
+                                <Label Text="No photo chosen"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Label Text="Package 1 Dimensions" VerticalOptions="Start" HorizontalOptions="Start"></Label>
+                            <Picker x:Name="pacakge1DimensionPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="CM"></Picker>
+                            <Entry x:Name="Package1Dimension1" WidthRequest="100" ></Entry>
+                            <Label Text="X"></Label>
+                            <Entry x:Name="Package1Dimension2" WidthRequest="100"></Entry>
+                            <Label Text="X"></Label>
+                            <Entry x:Name="Package1Dimension3" WidthRequest="100"></Entry>
                         </StackLayout>
                     </StackLayout>
-                    <StackLayout x:Name="Package2Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
-                        <Entry x:Name="pacakge2WeightEntry" Placeholder="Package 2 Weight"></Entry>
-                        <Picker x:Name="pacakge2WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
-                        <StackLayout x:Name="PhotoPackage2" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
-                            <Button Text="Upload Package 2 Photo" ></Button>
-                            <Label Text="No photo chosen"></Label>
+                    <StackLayout x:Name="Package2">
+                        <StackLayout x:Name="Package2Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Entry x:Name="pacakge2WeightEntry" Placeholder="Package 2 Weight"></Entry>
+                            <Picker x:Name="pacakge2WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
+                            <StackLayout x:Name="PhotoPackage2" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                                <Button Text="Upload Package 2 Photo" ></Button>
+                                <Label Text="No photo chosen"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Label Text="Package 2 Dimensions" VerticalOptions="Start" HorizontalOptions="Start"></Label>
+                            <Picker x:Name="pacakge2DimensionPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="CM"></Picker>
+                            <Entry x:Name="Package2Dimension1" WidthRequest="100" ></Entry>
+                            <Label Text="X"></Label>
+                            <Entry x:Name="Package2Dimension2" WidthRequest="100"></Entry>
+                            <Label Text="X"></Label>
+                            <Entry x:Name="Package2Dimension3" WidthRequest="100"></Entry>
                         </StackLayout>
                     </StackLayout>
-                    <StackLayout x:Name="Package3Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
-                        <Entry x:Name="pacakge3WeightEntry" Placeholder="Package 3 Weight"></Entry>
-                        <Picker x:Name="pacakge3WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
-                        <StackLayout x:Name="PhotoPackage3" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
-                            <Button Text="Upload Package 3 Photo" ></Button>
-                            <Label Text="No photo chosen"></Label>
+                    <StackLayout x:Name="Package3">
+                        <StackLayout x:Name="Package3Weight" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Entry x:Name="pacakge3WeightEntry" Placeholder="Package 3 Weight"></Entry>
+                            <Picker x:Name="pacakge3WeightPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="KGs"></Picker>
+                            <StackLayout x:Name="PhotoPackage3" Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                                <Button Text="Upload Package 3 Photo" ></Button>
+                                <Label Text="No photo chosen"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                            <Label Text="Package 3 Dimensions" VerticalOptions="Start" HorizontalOptions="Start"></Label>
+                            <Picker x:Name="pacakge3DimensionPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="CM"></Picker>
+                            <Entry x:Name="Package3Dimension1" WidthRequest="100" ></Entry>
+                            <Label Text="X"></Label>
+                            <Entry x:Name="Package3Dimension2" WidthRequest="100"></Entry>
+                            <Label Text="X"></Label>
+                            <Entry x:Name="Package3Dimension3" WidthRequest="100"></Entry>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -84,11 +117,11 @@
                     <Label Text="Share on facebook"  HorizontalOptions="Start" VerticalOptions="Center"></Label>
                     <Switch x:Name="facebook" HorizontalOptions="Center" VerticalOptions="Center" ></Switch>
                 </StackLayout>
-                <StackLayout>
-                    <Picker x:Name="currency" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="">
+                <StackLayout  Spacing="0" Padding="10" VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Picker x:Name="currency" SelectedIndex="0" HorizontalOptions="FillAndExpand" Title="Select Currency">
                     </Picker>
                     <Entry x:Name="willingToPay" Placeholder="Amount willing to pay" Keyboard="Numeric"></Entry>
-                </StackLayout>
+                </StackLayout >
                 <StackLayout Spacing="0" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
                     <Button Text="Send request" HorizontalOptions="Center" Clicked="OnCreateRequest"></Button>
                 </StackLayout>
