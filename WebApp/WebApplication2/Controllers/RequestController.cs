@@ -20,6 +20,12 @@ namespace Beam.Models
         }
 
         [HttpGet]
+        public IEnumerable<Request> Get(int id, int resUserFK)
+        {
+            return new RequestDataAccessLayer().GetRequestByReceiverControllers(id, resUserFK);
+        }
+
+        [HttpGet]
         public IEnumerable<Request> Get(int id, int resUserFK,string reqType)
         {
             return new RequestDataAccessLayer().GetAllRequestReceivedControllers(id, resUserFK, reqType);

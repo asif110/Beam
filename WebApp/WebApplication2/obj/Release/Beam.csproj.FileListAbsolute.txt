@@ -91,7 +91,6 @@ D:\BeamOriginal\Beam\WebApp\WebApplication2\bin\Microsoft.AI.DependencyCollector
 D:\BeamOriginal\Beam\WebApp\WebApplication2\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\BeamOriginal\Beam\WebApp\WebApplication2\bin\Microsoft.AI.WindowsServer.xml
 D:\BeamOriginal\Beam\WebApp\WebApplication2\bin\Microsoft.AI.Web.xml
-D:\BeamOriginal\Beam\WebApp\WebApplication2\obj\Release\Beam.csprojAssemblyReference.cache
 D:\BeamOriginal\Beam\WebApp\WebApplication2\obj\Release\Beam.csproj.CoreCompileInputs.cache
 D:\BeamOriginal\Beam\WebApp\WebApplication2\obj\Release\Beam.csproj.CopyComplete
 D:\BeamOriginal\Beam\WebApp\WebApplication2\obj\Release\WebApplication2.dll

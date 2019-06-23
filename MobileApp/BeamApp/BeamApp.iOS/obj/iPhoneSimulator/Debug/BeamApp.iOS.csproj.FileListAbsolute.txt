@@ -116,6 +116,7 @@ D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\act
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\optimized\
+D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\BeamApp.iOS.csprojAssemblyReference.cache
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\App.xaml.g.cs
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\MainPage.xaml.g.cs
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\Register.xaml.g.cs
@@ -128,9 +129,10 @@ D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\Req
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\Inbox.xaml.g.cs
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\InboxDetails.xaml.g.cs
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\SendBox.xaml.g.cs
+D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\ChatDetail.xaml.g.cs
+D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\SentList.xaml.g.cs
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\BeamApp.iOS.csproj.CoreCompileInputs.cache
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\XamlC.stamp
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\BeamApp.iOS.csproj.CopyComplete
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\BeamApp.iOS.exe
 D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\BeamApp.iOS.pdb
-D:\BeamOriginal\Beam\MobileApp\BeamApp\BeamApp.iOS\obj\iPhoneSimulator\Debug\BeamApp.iOS.csprojAssemblyReference.cache

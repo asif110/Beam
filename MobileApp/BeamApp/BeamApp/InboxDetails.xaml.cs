@@ -20,9 +20,11 @@ namespace BeamApp
         ReuestProperty rp;
 
         string UPk;
+
+        string ToID;
         string strReqType;
 
-        public InboxDetails(string PK, string UserPK,string reqType)
+        public InboxDetails(string PK, string UserPK,string reqType,string UserTo)
         {
             rp = new ReuestProperty();
             rp.PK = Convert.ToInt32(PK);
@@ -30,15 +32,17 @@ namespace BeamApp
             ReqPK = PK;
             strReqType = reqType;
             InitializeComponent();
-            GetRequestDocument(PK);
-            UPk = UserPK;
+            GetRequestDocument(PK,UserTo, reqType);
+            UPk = UserPK; // from user or the one who is logged in
+            ToID = UserTo;
+
         }
 
         async void OnChat(object sender, EventArgs e)
         {
             if (rp.PK.ToString() != "")
             {
-                await Navigation.PushAsync(new ChatDetail(rp.PK.ToString()));
+                await Navigation.PushAsync(new ChatDetail(rp.PK.ToString(),UPk,ToID));
                
             }
         }
@@ -58,15 +62,23 @@ namespace BeamApp
             }
         }
 
-        private async void GetRequestDocument(string PK)
+        private async void GetRequestDocument(string PK,string UserTo, string reqType)
         {
             HttpClient client = new HttpClient();
 
             List<ReuestProperty> requestPropertyient = new List<ReuestProperty>();
 
             int id = Convert.ToInt32(PK);
+            string strURL = "";
+            if (reqType == "sent")
+            {
+                strURL = "http://beam.gear.host/api/Request?id=" + id + "&resUserFK=" + UserTo;
 
-            string strURL = "http://beam.gear.host/api/Request?id=" + id;
+            }
+            else
+            {
+                strURL = "http://beam.gear.host/api/Request?id=" + id;
+            }
             var response = await client.GetStringAsync(strURL);
             // var response = await client.GetStringAsync("http://beam.gear.host/api/Request?id=1");
 

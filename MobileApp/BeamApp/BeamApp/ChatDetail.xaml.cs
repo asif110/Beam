@@ -15,72 +15,166 @@ namespace BeamApp
     public partial class ChatDetail : ContentPage
     {
         ChatProperty chatProperty;
-
-        public ChatDetail(string RequestId)
+        StringBuilder strDB = new StringBuilder();
+        public ChatDetail(string RequestId, string FromId, string ToId)
         {
             InitializeComponent();
 
             chatProperty = new ChatProperty();
-
+            
             chatProperty.RequestId = Convert.ToInt32(RequestId);
+            chatProperty.FromId = Convert.ToInt32(FromId);
+            chatProperty.ToId = Convert.ToInt32(ToId);
+            refreshChatUi();
+            int intervalInSeconds = 10;
 
-            GetChatDetails(RequestId);
+            Device.StartTimer(TimeSpan.FromSeconds(intervalInSeconds), () =>
+            { 
+                
+                Device.BeginInvokeOnMainThread(() => refreshChatUi());
+                return true;
+            });
+
+            //GetChatDetails(RequestId,FromId,ToId);
+
         }
+        
 
-        private async void GetChatDetails(string RequestId)
+        private  void refreshChatUi()
+        {
+             GetChatDetails(chatProperty.RequestId.ToString(), chatProperty.FromId.ToString(), chatProperty.ToId.ToString());
+        }
+        
+        private async void GetChatDetails(string RequestId, string FromId, string ToId)
         {
             HttpClient client = new HttpClient();
 
-            List<ChatProperty> chatProperty = new List<ChatProperty>();
+            List<ChatProperty> cht = new List<ChatProperty>();
 
             int ReqId = Convert.ToInt32(RequestId);
+            int FId = Convert.ToInt32(FromId);
+            int TId = Convert.ToInt32(ToId);
 
-            string strURL = "http://beam.gear.host/api/Chat?id=" + ReqId;
+            string strURL = "http://beam.gear.host/api/Chat?id=" + ReqId  + "&FromId=" + FId + "&ToId=" + TId;
             var response = await client.GetStringAsync(strURL);
           
             var chat = JsonConvert.DeserializeObject<List<ChatProperty>>(response);
-            chatProperty = (List<ChatProperty>)chat;
+            cht = (List<ChatProperty>)chat;
 
             //var browser = new WebView();
-            //var htmlSource = new HtmlWebViewSource();
-            //StringBuilder htmlStr = new StringBuilder("");
-            //htmlStr.Append("<html><body><table>");
-            //htmlStr.Append("<table width='100%' height='20%' Border='1px solid black'>");
-
-            //htmlStr.Append("<tr>");
-            //htmlStr.Append("<th> FirstName </th>");
-            //htmlStr.Append("<th>LastName </th></tr>");
-
-            //htmlStr.Append("<tr>");
-            //htmlStr.Append("<td>Disha </td>");
-            //htmlStr.Append("<td>Raval</td></tr>");
-
-            //htmlStr.Append("<tr>");
-            //htmlStr.Append("<td>Namrata</td>");
-            //htmlStr.Append("<td>Rathod</td></tr>");
-
-            //htmlStr.Append("<tr>");
-            //htmlStr.Append("<td>Monika</td>");
-            //htmlStr.Append("<td>Vaghasiya</td></tr>");
-
-            //htmlStr.Append("</table></body></html>");
-            //htmlSource.Html = htmlStr.ToString();
-            //browser.Source = htmlSource;
-            //Content = browser;
+            //browser.VerticalOptions = LayoutOptions.FillAndExpand;
+            //browser.WidthRequest = 1000;
+            //browser.HeightRequest = 1000;
             
+            wb.VerticalOptions = LayoutOptions.FillAndExpand;
+            wb.HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            wb.WidthRequest = 500;
+            wb.HeightRequest = 500;
+
+            var htmlSource = new HtmlWebViewSource();
+            StringBuilder htmlStr = new StringBuilder("");
+            htmlStr.Append("<html><body>");
+            htmlStr.Append("<table width='100%' Border='0px'>");
+
+          
+
+            foreach (ChatProperty chtpr  in cht)
+            {
+                if (chtpr.FromId != chatProperty.FromId)
+                {
+                    htmlStr.Append("<tr>");
+                    htmlStr.Append("<td align='left'>");
+                    htmlStr.Append("<font color='blue'>");
+
+                    htmlStr.Append(chtpr.ChatMessage.ToString());
+                    htmlStr.Append("</font>");
+                    htmlStr.Append("</td></tr>");
+
+                }
+                else
+                {
+                    htmlStr.Append("<tr>");
+                    htmlStr.Append("<td align='right'>");
+                    htmlStr.Append("<font color='red'>");
+
+                    htmlStr.Append(chtpr.ChatMessage.ToString());
+                    htmlStr.Append("</font>");
+                    htmlStr.Append("</td></tr>");
+                }
+
+            }
+
+            string result = htmlStr.ToString();
+
+            strDB.Append(result);
+            htmlStr.Append("</table></body></html>");
+            htmlSource.Html = htmlStr.ToString();
+           // browser.Source = htmlSource; 
+            wb.Source = htmlSource;
+            //stklyt.Children.Add(browser);
+            
+
+            //Content = browser;
+            // cnt.Content = browser;
+            //cnt.Content = wb;
+            //stklyt.Children.Add(browser);
+            cnt.Content =  stklyt;
 
         }
 
+        public void RefillChat(StringBuilder str)
+        {
+            wb.VerticalOptions = LayoutOptions.FillAndExpand;
+            wb.HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            wb.WidthRequest = 500;
+            wb.HeightRequest = 500;
+
+            var htmlSource = new HtmlWebViewSource();
+            StringBuilder htmlStr = new StringBuilder("");
+            string result = strDB.ToString();
+            string strParam = str.ToString();
+            string strNew = "";
+
+            htmlStr.Append(result);
+            htmlStr.Append(strParam);
+
+            strNew = htmlStr.ToString();
+
+            strDB.Clear();
+
+            strDB.Append(strNew);
+
+            htmlStr.Append("</table></body></html>");
+            htmlSource.Html = htmlStr.ToString();
+            wb.Source = htmlSource;
+          
+            cnt.Content = stklyt;
+        }
         private async void OnSendChat(object sender, EventArgs e)
         {
             
           
             //chatProperty.ChatImage = "";
             chatProperty.ChatMessage = chat.Text.ToString();
-            chatProperty.FromId = "1";
-            chatProperty.ToId = "2";
+           // chatProperty.FromId = "1";
+            //chatProperty.ToId = "2";
             bool result = await UpdateChat(chatProperty);
 
+            StringBuilder updateMessage = new StringBuilder(""); ;
+
+            updateMessage.Append("<tr>");
+            updateMessage.Append("<td align='right'>");
+            updateMessage.Append("<font color='red'>");
+
+            updateMessage.Append(chat.Text.ToString());
+            updateMessage.Append("</font>");
+            updateMessage.Append("</td></tr>");
+
+            RefillChat(updateMessage);
+
+            chat.Text = "";
 
         }
 
@@ -119,8 +213,8 @@ namespace BeamApp
             //data retrieved
             public int PK { get; set; }
             public string ChatMessage { get; set; }
-            public string FromId { get; set; }
-            public string ToId { get; set; }
+            public int FromId { get; set; }
+            public int ToId { get; set; }
             public int RequestId { get; set; }
            // public string ChatImage { get; set; }
             public Boolean IsRead { get; set; }

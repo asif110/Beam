@@ -49,7 +49,7 @@ namespace BeamApp
             {
                 var selection = e.SelectedItem as ReuestProperty;
 
-                await Navigation.PushAsync(new InboxDetails(selection.PK.ToString(), Upk, "received"));
+                await Navigation.PushAsync(new InboxDetails(selection.PK.ToString(), Upk, "received",selection.reqCreatedUserFK.ToString()));
                 //await Navigation.PushAsync(new RequestDocument());
 
 
@@ -89,6 +89,8 @@ namespace BeamApp
         public Boolean IsStatusChange { get; set; }
         public string FromCitystr { get; set; }
         public string ToCitystr { get; set; }
+        public string ReceivedUserFK { get; set; }
+        public string reqCreatedUserFK { get; set; }
 
     }
 }

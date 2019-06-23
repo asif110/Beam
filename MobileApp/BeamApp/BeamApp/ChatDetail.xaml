@@ -2,26 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeamApp.ChatDetail"
-             Title="Detail">
-    <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
+             Title="Detail" x:Name="cnt">
+    <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" >
         <Label x:Name="lblName" Text=""></Label>
+        <Label x:Name="lblTime" Text="" FontSize="Medium" ></Label>
 
 
 
-        <StackLayout>
-            <Label x:Name="lblchat" Text="Chat" FontSize="Medium" >
-              
-            </Label>
-           
+        <StackLayout x:Name="stklyt">
+                <WebView x:Name="wb" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
-            <Label x:Name="lblChatMessage" Text= "{Binding rclText}" FontSize="Medium" ></Label>
-            <Entry Placeholder="Enter Chat" x:Name="chat"></Entry>
+                </WebView>
+                <Label x:Name="lblchat" Text="Chat" FontSize="Medium" >
 
+                </Label>
 
 
-        </StackLayout>
+                <Label x:Name="lblChatMessage" Text= "{Binding rclText}" FontSize="Medium" ></Label>
+                <Entry Placeholder="Enter Chat" x:Name="chat"></Entry>
 
-        <Button Text="Sent" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnSendChat"></Button>
+                <Button Text="Sent" TextColor="Black"  Clicked="OnSendChat"></Button>
+
+            </StackLayout>
+
 
     </StackLayout>
 </ContentPage>
