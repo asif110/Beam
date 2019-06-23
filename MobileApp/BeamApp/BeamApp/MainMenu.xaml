@@ -5,10 +5,19 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                <Button Text="Send a document request" HorizontalOptions="Center" Clicked="OnDocument"></Button>
-                <Button Text="Send a package request" HorizontalOptions="Center" Clicked="OnPackage"></Button>
-                <Button Text="Send an accompany request" HorizontalOptions="Center" Clicked="OnAccompany"></Button>
-                <Button Text="Send a carpool request" HorizontalOptions="Center" Clicked="OnCarpool"></Button>
+                <StackLayout Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Image  Source="document.png" />
+                    <Button Text="Send a document request" HorizontalOptions="Center" Clicked="OnDocument"></Button>
+                </StackLayout>
+                <StackLayout Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Image  Source="packageicon.png" />
+                    <Button Text="Send a package request" HorizontalOptions="Center" Clicked="OnPackage"></Button>
+                </StackLayout>
+                <StackLayout Spacing="0" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" Orientation="Horizontal">
+                    <Image  Source="accompany.png" />
+                    <Button Text="Send an accompany request" HorizontalOptions="Center" Clicked="OnAccompany"></Button>
+                </StackLayout>
+                <!--<Button Text="Send a carpool request" HorizontalOptions="Center" Clicked="OnCarpool"></Button>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

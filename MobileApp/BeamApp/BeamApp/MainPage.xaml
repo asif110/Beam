@@ -6,6 +6,7 @@
 
 
 	<StackLayout Spacing="20" Padding="50" VerticalOptions="Center" x:Name="loginPanel">
+    <Image  x:Name="img" Source="logo.jpg" />
 		<Button Text="Register" TextColor="Black" BackgroundColor="##ff77D065" Clicked="OnRegister" HorizontalOptions="End"></Button>
 		<Entry Placeholder="Email" x:Name="email"></Entry>
 		<Entry Placeholder="Password" IsPassword="True" x:Name="password"></Entry>

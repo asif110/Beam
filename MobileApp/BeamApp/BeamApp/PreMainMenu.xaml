@@ -3,20 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeamApp.PreMainMenu" NavigationPage.HasBackButton="False">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
+            
+            <Image  Source="request.png" />
             <Button Text="Be a sender"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Center" FontSize="Large" Clicked="OnSender" />
+            <Image  Source="taker.png" />
             <Button Text="Be a taker"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Center" FontSize="Large" Clicked="OnTaker" />
+            <Image  Source="inbox.png" />
             <Button Text="Inbox"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Center" FontSize="Large" Clicked="OnReceive" />
+            <Image Source="sent.png" />
             <Button Text="Sent Request"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Center" FontSize="Large" Clicked="OnSent" />
             
         </StackLayout>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>
