@@ -26,7 +26,7 @@ namespace BeamApp
             chatProperty.FromId = Convert.ToInt32(FromId);
             chatProperty.ToId = Convert.ToInt32(ToId);
             refreshChatUi();
-            int intervalInSeconds = 10;
+            int intervalInSeconds = 5;
 
             Device.StartTimer(TimeSpan.FromSeconds(intervalInSeconds), () =>
             { 
@@ -172,7 +172,7 @@ namespace BeamApp
             updateMessage.Append("</font>");
             updateMessage.Append("</td></tr>");
 
-            RefillChat(updateMessage);
+            //RefillChat(updateMessage);
 
             chat.Text = "";
 

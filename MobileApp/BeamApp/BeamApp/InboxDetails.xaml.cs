@@ -92,8 +92,14 @@ namespace BeamApp
             FlexibilityDays.Text = "Flexibility:" + " " + requestPropertyient[0].FlexibilityDays.ToString();
             //lblName.Text = requestPropertyient[0].UserName.ToString();
             //Asif 20180317 display first part of email instead of name
-            lblName.Text = requestPropertyient[0].Email.Split('@')[0];
-
+            if (requestPropertyient[0].Email != null)
+            {
+                lblName.Text = requestPropertyient[0].Email.Split('@')[0];
+            }
+            else
+            {
+                lblName.Text = "";
+            }
 
             lblFromCity.Text = "Document Origin: "+ requestPropertyient[0].FromCitystr.ToString();
 
